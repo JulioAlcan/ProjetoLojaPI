@@ -2,8 +2,6 @@
 
 Eae pessoal, quando vocês forem criar algo, cria uma nova branch (cada branch será uma versão - ex: Versao-0.2/ Versao-0.3).
 
-Para criar as branches tem o código do git bash que é (git checkout -b "Versao-...")
-
 Segue ai alguns códigos do Git Bash e suas funções
 
 git init - (localizar repositório e inicia) 
