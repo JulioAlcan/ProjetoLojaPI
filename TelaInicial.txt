@@ -1,0 +1,7 @@
+Botões menu inicial_
+
+btnCadastroCliente
+btnCadastroProduto
+btnTelaVendas
+btnRelatorio
+
