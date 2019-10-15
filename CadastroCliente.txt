@@ -1,0 +1,26 @@
+Cadastro Cliente
+
+txtId
+txtNome
+txtCPF
+txtRG
+listSexo
+txtDataNascimento
+txtEmail
+listEstadoCivil
+txtCep
+txtNumeroResidencia
+txtComplementoResidencia
+txtEndercoRua
+txtBairro
+listUF
+txtCidade
+txtCelular
+txtTelResidencial
+btnSalvarCadastroCliente
+btnBuscarCadastroCliente
+btnBuscarIDcadastroCliente
+btnNovoCadastroCliente
+btnEditarCadastroCliente
+btnExcluirCadastroCliente
+btnCancelarInclusaoCDcliente
