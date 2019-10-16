@@ -43,6 +43,12 @@ public class LoginView extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        NomeUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NomeUserActionPerformed(evt);
+            }
+        });
         jPanel1.add(NomeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 280, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetolojapi/images/avatar.png"))); // NOI18N
@@ -119,9 +125,13 @@ public class LoginView extends javax.swing.JFrame {
         }
         TelaInicial menu = new TelaInicial();
         this.setVisible(false);
-        menu.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        menu.setExtendedState(JFrame.NORMAL);
         menu.setVisible(true);
     }//GEN-LAST:event_NomeEntrarActionPerformed
+
+    private void NomeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NomeUserActionPerformed
 
     /**
      * @param args the command line arguments

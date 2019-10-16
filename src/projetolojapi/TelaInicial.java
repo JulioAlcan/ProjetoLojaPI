@@ -29,7 +29,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         BtnCadastroCliente = new javax.swing.JButton();
@@ -39,15 +39,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu inicial");
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         jPanel2.setBackground(new java.awt.Color(11, 33, 47));
 
-        jButton2.setBackground(new java.awt.Color(22, 22, 22));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Sair");
+        btnSair.setBackground(new java.awt.Color(22, 22, 22));
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setText("Sair");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetolojapi/images/usuario icone.png"))); // NOI18N
 
@@ -60,7 +59,7 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(32, 32, 32)
@@ -77,7 +76,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -108,6 +107,11 @@ public class TelaInicial extends javax.swing.JFrame {
         btnTelaVendas.setForeground(new java.awt.Color(255, 255, 255));
         btnTelaVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetolojapi/images/icone vendas.png"))); // NOI18N
         btnTelaVendas.setText("Finalizar compra");
+        btnTelaVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaVendasActionPerformed(evt);
+            }
+        });
 
         btnRelatorio.setBackground(new java.awt.Color(7, 20, 29));
         btnRelatorio.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 14)); // NOI18N
@@ -163,6 +167,7 @@ public class TelaInicial extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastroClienteActionPerformed
@@ -180,6 +185,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
         new TelaRelatorios().setVisible(true);
     }//GEN-LAST:event_btnRelatorioActionPerformed
+
+    private void btnTelaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaVendasActionPerformed
+        new TelaVendas().setVisible(true);
+    }//GEN-LAST:event_btnTelaVendasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,8 +229,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton BtnCadastroCliente;
     private javax.swing.JButton btnCadastroProduto;
     private javax.swing.JButton btnRelatorio;
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton btnTelaVendas;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
