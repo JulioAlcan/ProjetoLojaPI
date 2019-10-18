@@ -20,7 +20,10 @@ public class ClientesCadastro {
     private String codCelular;
     private String codTelResidencial;
 
-    public ClientesCadastro(String codUsuario, String codNome, String codCpf, String codRg, String codSexo, String codNascimento, String codEmail, String codEstCivil, String codCep, String codNumeroResidencia, String codComplemento, String codEndereco, String codBairro, String codUF, String codCidade, String codCelular, String codTelResidencial) {
+    public ClientesCadastro(String codUsuario, String codNome, String codCpf, String codRg, 
+            String codSexo, String codNascimento, String codEmail, String codEstCivil, String codCep, 
+            String codNumeroResidencia, String codComplemento, String codEndereco, String codBairro, String codUF, 
+            String codCidade, String codCelular, String codTelResidencial) {
         this.codUsuario = codUsuario;
         this.codNome = codNome;
         this.codCpf = codCpf;

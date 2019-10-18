@@ -33,7 +33,7 @@ public class LoginView extends javax.swing.JFrame {
         NomeEntrar = new javax.swing.JButton();
         NomeSenha = new javax.swing.JPasswordField();
         NomeLembrarSenha = new javax.swing.JCheckBox();
-        NomeCadastrar = new javax.swing.JButton();
+        btnNomeCadastrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -76,13 +76,24 @@ public class LoginView extends javax.swing.JFrame {
         });
         jPanel1.add(NomeSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 280, 30));
 
+        NomeLembrarSenha.setBackground(new java.awt.Color(89, 92, 111));
         NomeLembrarSenha.setForeground(new java.awt.Color(255, 255, 255));
         NomeLembrarSenha.setText("Me lembre");
+        NomeLembrarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NomeLembrarSenhaActionPerformed(evt);
+            }
+        });
         jPanel1.add(NomeLembrarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
 
-        NomeCadastrar.setForeground(new java.awt.Color(92, 75, 105));
-        NomeCadastrar.setText("Cadastre-se");
-        jPanel1.add(NomeCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 100, 30));
+        btnNomeCadastrar.setForeground(new java.awt.Color(92, 75, 105));
+        btnNomeCadastrar.setText("Cadastre-se");
+        btnNomeCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNomeCadastrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNomeCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 110, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetolojapi/images/linha.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 310, -1));
@@ -110,6 +121,7 @@ public class LoginView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void NomeSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeSenhaActionPerformed
@@ -130,8 +142,16 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeEntrarActionPerformed
 
     private void NomeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeUserActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_NomeUserActionPerformed
+
+    private void NomeLembrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeLembrarSenhaActionPerformed
+
+    }//GEN-LAST:event_NomeLembrarSenhaActionPerformed
+
+    private void btnNomeCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNomeCadastrarActionPerformed
+        telaCadastro tc = new telaCadastro();
+    }//GEN-LAST:event_btnNomeCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,11 +189,11 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton NomeCadastrar;
     private javax.swing.JButton NomeEntrar;
     private javax.swing.JCheckBox NomeLembrarSenha;
     private javax.swing.JPasswordField NomeSenha;
     private javax.swing.JTextField NomeUser;
+    private javax.swing.JButton btnNomeCadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -186,4 +206,13 @@ public class LoginView extends javax.swing.JFrame {
     void setVisible() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private static class telaCadastro {
+
+        public telaCadastro() {
+            new TelaCadastroCliente().setVisible(true);
+            TelaCadastroCliente CadastroCliente = new TelaCadastroCliente();
+        }
+    }
+
 }

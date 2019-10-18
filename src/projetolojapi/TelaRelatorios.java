@@ -161,7 +161,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarTelaRelatoriosActionPerformed
 
     private void tglRelatorioAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglRelatorioAActionPerformed
-        new TelaRelatorioAnalitico().setVisible(true);
+       new TelaRelatorioAnalitico().setVisible(true);
     }//GEN-LAST:event_tglRelatorioAActionPerformed
 
     private void tglRelatorioSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglRelatorioSActionPerformed
