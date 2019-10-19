@@ -1,4 +1,4 @@
-package Clases;
+package Classes;
 
 public class ClientesCadastro {
 

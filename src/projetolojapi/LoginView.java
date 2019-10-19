@@ -5,7 +5,7 @@
  */
 package projetolojapi;
 
-import Clases.DadosUsuario;
+import Classes.DadosUsuario;
 import static java.awt.GridBagConstraints.BOTH;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -126,10 +126,16 @@ public class LoginView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeSenhaActionPerformed
 
+    private void CadastroLogin(){
+        //CadastroLogin cl = new CadastroLogin();
+        //cl.setVisible(true);
+        
+    }
+    
     private void NomeEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeEntrarActionPerformed
         DadosUsuario clsdados = new DadosUsuario();
         if (!clsdados.validarUsuarios(NomeUser.getText(), new String(NomeSenha.getPassword()))) {
-            JOptionPane.showMessageDialog(rootPane, "USUÁRIO E SENHA ERRADO");
+            JOptionPane.showMessageDialog(rootPane, "Usuário ou senha incorretos!");
             NomeUser.setText("");
             NomeSenha.setText("");
             NomeUser.requestFocusInWindow();
@@ -150,7 +156,9 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeLembrarSenhaActionPerformed
 
     private void btnNomeCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNomeCadastrarActionPerformed
-        telaCadastro tc = new telaCadastro();
+        CadastroLoginView cv = new CadastroLoginView();
+        cv.setVisible(true);
+        cv.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnNomeCadastrarActionPerformed
 
     /**
@@ -208,11 +216,6 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     private static class telaCadastro {
-
-        public telaCadastro() {
-            new TelaCadastroCliente().setVisible(true);
-            TelaCadastroCliente CadastroCliente = new TelaCadastroCliente();
-        }
     }
 
 }
