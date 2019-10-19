@@ -595,7 +595,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         btnBuscarCadastroCliente.setEnabled(true);
         btnEditarCadastroCliente.setEnabled(true);
         btnExcluirCadastroCliente.setEnabled(true);
-
         txtCPF.setEnabled(false);
         txtRG.setEnabled(false);
         listSexo.setEnabled(false);
