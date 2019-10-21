@@ -49,10 +49,10 @@ public class CadastroLoginView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtCpfCl = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtSenhaCl = new javax.swing.JTextField();
         lblSenhaAdmin = new javax.swing.JLabel();
         btnInserir = new javax.swing.JButton();
         txtSenhaAdmin = new javax.swing.JPasswordField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         jTextField1.setText("jTextField1");
 
@@ -150,12 +150,6 @@ public class CadastroLoginView extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Senha:");
 
-        txtSenhaCl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaClActionPerformed(evt);
-            }
-        });
-
         lblSenhaAdmin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblSenhaAdmin.setForeground(new java.awt.Color(51, 51, 51));
         lblSenhaAdmin.setText("Senha adm:");
@@ -176,7 +170,7 @@ public class CadastroLoginView extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -195,7 +189,7 @@ public class CadastroLoginView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSenhaCl, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txtCpfCl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -226,17 +220,22 @@ public class CadastroLoginView extends javax.swing.JFrame {
                     .addComponent(txtEmailCl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUserCl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtSenhaCl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInserir)
-                    .addComponent(lblSenhaAdmin)
-                    .addComponent(txtSenhaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtUserCl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel4)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSenhaAdmin)
+                            .addComponent(txtSenhaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnInserir)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -278,10 +277,6 @@ public class CadastroLoginView extends javax.swing.JFrame {
     private void txtNomeClActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClActionPerformed
         this.txtNomeCl.getText();
     }//GEN-LAST:event_txtNomeClActionPerformed
-
-    private void txtSenhaClActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaClActionPerformed
-        this.txtSenhaCl.getText();
-    }//GEN-LAST:event_txtSenhaClActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,6 +326,7 @@ public class CadastroLoginView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblSenhaAdmin;
     private javax.swing.JTextField txtCargoCl;
@@ -338,7 +334,6 @@ public class CadastroLoginView extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmailCl;
     private javax.swing.JTextField txtNomeCl;
     private javax.swing.JPasswordField txtSenhaAdmin;
-    private javax.swing.JTextField txtSenhaCl;
     private javax.swing.JTextField txtUserCl;
     // End of variables declaration//GEN-END:variables
 }

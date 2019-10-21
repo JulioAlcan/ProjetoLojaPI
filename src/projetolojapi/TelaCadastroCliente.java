@@ -373,6 +373,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         cbxTipoBusca.setBackground(new java.awt.Color(204, 204, 204));
         cbxTipoBusca.setForeground(new java.awt.Color(51, 51, 51));
         cbxTipoBusca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Cliente", "CPF" }));
+        cbxTipoBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxTipoBuscaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -633,6 +638,10 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private void btnExcluirCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadastroClienteActionPerformed
         
     }//GEN-LAST:event_btnExcluirCadastroClienteActionPerformed
+
+    private void cbxTipoBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoBuscaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxTipoBuscaActionPerformed
 
     /**
      * @param args the command line arguments
