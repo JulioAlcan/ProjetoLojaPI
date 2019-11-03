@@ -30,7 +30,8 @@ public class ProdutoController {
 
         for (int i = 0; i < Produto.size(); i++) {
             listaProduto.add(new String[]{String.valueOf(Produto.get(i).getID()), String.valueOf(Produto.get(i).getTxtNomeProd()),
-                String.valueOf(Produto.get(i).getTxtTipo()), String.valueOf(Produto.get(i).getTxtPreco()), String.valueOf(Produto.get(i).getQtdProd())});
+                String.valueOf(Produto.get(i).getTxtPreco()),
+                String.valueOf(Produto.get(i).getTxtTipo()),  String.valueOf(Produto.get(i).getQtdProd())});
 
         }
 

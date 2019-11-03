@@ -35,43 +35,49 @@ public class ElementosCliente {
         this.idCliente = QtdCliente;
 
     }
-    public ElementosCliente( String cliNome, String cliCPF, String cliRG, String listSexo, String cliNascimento, String cliEmail, String listEstadoCivil, String cliCep, String cliNumeroResidencia, String cliComplementoResidencia, String cliEndercoRua, String cliBairro, String listUF, String cliCidade, String cliCelular, String cliTelResidencial) {
+    public ElementosCliente( String cliNome, String cliCPF, String cliRG, String cliNascimento,String listSexo,String listEstadoCivil, 
+            String cliEmail, String cliEndercoRua, String cliNumeroResidencia,String cliComplementoResidencia, String cliBairro,
+             String cliCep,  String cliCidade, String listUF,  String cliCelular, String cliTelResidencial) {
+            
         QtdCliente++;
         this.idCliente = QtdCliente;
         this.cliNome = cliNome;
         this.cliCPF = cliCPF;
         this.cliRG = cliRG;
-        this.listSexo = listSexo;
         this.cliNascimento = cliNascimento;
-        this.cliEmail = cliEmail;
+        this.listSexo = listSexo;
         this.listEstadoCivil = listEstadoCivil;
-        this.cliCep = cliCep;
-        this.cliNumeroResidencia = cliNumeroResidencia;
-        this.cliComplementoResidencia = cliComplementoResidencia;
+        this.cliEmail = cliEmail;
         this.cliEndercoRua = cliEndercoRua;
-        this.cliBairro = cliBairro;
+        this.cliNumeroResidencia = cliNumeroResidencia;
+       this.cliComplementoResidencia = cliComplementoResidencia;
+       this.cliBairro = cliBairro;
+       this.cliCep = cliCep;
+         this.cliCidade = cliCidade;
         this.listUF = listUF;
-        this.cliCidade = cliCidade;
         this.cliCelular = cliCelular;
         this.cliTelResidencial = cliTelResidencial;
     }
     
-    public ElementosCliente(int idCliente, String cliNome, String cliCPF, String cliRG, String listSexo, String cliNascimento, String cliEmail, String listEstadoCivil, String cliCep, String cliNumeroResidencia, String cliComplementoResidencia, String cliEndercoRua, String cliBairro, String listUF, String cliCidade, String cliCelular, String cliTelResidencial) {
+    public ElementosCliente(int idCliente, String cliNome, String cliCPF, String cliRG,  String cliNascimento, String listSexo,
+            String listEstadoCivil,String cliEmail,String cliEndercoRua,  String cliNumeroResidencia, String cliComplementoResidencia, 
+            String cliBairro,String cliCep, String cliCidade,String listUF,  String cliCelular, String cliTelResidencial) {
+             
         this.idCliente = idCliente;
         this.cliNome = cliNome;
         this.cliCPF = cliCPF;
         this.cliRG = cliRG;
-        this.listSexo = listSexo;
         this.cliNascimento = cliNascimento;
-        this.cliEmail = cliEmail;
+       this.listSexo = listSexo;
         this.listEstadoCivil = listEstadoCivil;
-        this.cliCep = cliCep;
+        this.cliEmail = cliEmail;
+        this.cliEndercoRua = cliEndercoRua;
         this.cliNumeroResidencia = cliNumeroResidencia;
         this.cliComplementoResidencia = cliComplementoResidencia;
-        this.cliEndercoRua = cliEndercoRua;
-        this.cliBairro = cliBairro;
+         this.cliBairro = cliBairro;
+          this.cliCep = cliCep;
+         this.cliCidade = cliCidade;
         this.listUF = listUF;
-        this.cliCidade = cliCidade;
         this.cliCelular = cliCelular;
         this.cliTelResidencial = cliTelResidencial;
     }

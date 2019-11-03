@@ -185,7 +185,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void BtnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastroClienteActionPerformed
         // Cadastrando o botao para acesso ao cadastro de cliente4
-        telaCadastro();
+        new TelaCadastroCliente().setVisible(true);
     }//GEN-LAST:event_BtnCadastroClienteActionPerformed
 
     private void btnCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutoActionPerformed

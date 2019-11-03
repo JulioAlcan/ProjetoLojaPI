@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafael.ralouzano/Downloads/ProjetoLojaPI-PIatualizado/ProjetoLojaPI-PIatualizado/src/projetolojapi/TelaInicial.java</file>
-            <file>file:/C:/Users/rafael.ralouzano/Downloads/ProjetoLojaPI-PIatualizado/ProjetoLojaPI-PIatualizado/src/MODEL/ElementosProdutos.java</file>
-            <file>file:/C:/Users/rafael.ralouzano/Downloads/ProjetoLojaPI-PIatualizado/ProjetoLojaPI-PIatualizado/src/Classes/Usuarios.java</file>
-            <file>file:/C:/Users/rafael.ralouzano/Downloads/ProjetoLojaPI-PIatualizado/ProjetoLojaPI-PIatualizado/src/projetolojapi/TelaCadastroProduto.java</file>
+            <file>file:/C:/Users/Sandro/Documents/NetBeansProjects/ProjetoLojaPI/src/projetolojapi/Main.java</file>
+            <file>file:/C:/Users/Sandro/Documents/NetBeansProjects/ProjetoLojaPI/src/projetolojapi/TelaCadastroProduto.java</file>
+            <file>file:/C:/Users/Sandro/Documents/NetBeansProjects/ProjetoLojaPI/src/projetolojapi/TelaInicial.java</file>
+            <file>file:/C:/Users/Sandro/Documents/NetBeansProjects/ProjetoLojaPI/src/projetolojapi/TelaVendas.java</file>
+            <file>file:/C:/Users/Sandro/Documents/NetBeansProjects/ProjetoLojaPI/src/projetolojapi/TelaCadastroCliente.java</file>
         </group>
     </open-files>
 </project-private>
