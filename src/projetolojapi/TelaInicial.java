@@ -5,6 +5,10 @@
  */
 package projetolojapi;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author julio
@@ -36,6 +40,7 @@ public class TelaInicial extends javax.swing.JFrame {
         btnCadastroProduto = new javax.swing.JButton();
         btnTelaVendas = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
+        btnRelatorio1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu inicial");
@@ -47,7 +52,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         btnSair.setBackground(new java.awt.Color(22, 22, 22));
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
+        btnSair.setText("Log Out");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -63,21 +68,24 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addComponent(jLabel1)
-                            .addGap(21, 21, 21))
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel1)
+                                .addGap(17, 17, 17))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnSair)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,10 +131,21 @@ public class TelaInicial extends javax.swing.JFrame {
         btnRelatorio.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 14)); // NOI18N
         btnRelatorio.setForeground(new java.awt.Color(255, 255, 255));
         btnRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetolojapi/images/icone relatorio4.png"))); // NOI18N
-        btnRelatorio.setText("  Relatórios");
+        btnRelatorio.setText("  Relatório sintético");
         btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRelatorioActionPerformed(evt);
+            }
+        });
+
+        btnRelatorio1.setBackground(new java.awt.Color(145, 69, 42));
+        btnRelatorio1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 14)); // NOI18N
+        btnRelatorio1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorio1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetolojapi/images/icone relatorio4.png"))); // NOI18N
+        btnRelatorio1.setText("  Relatório analítico");
+        btnRelatorio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorio1ActionPerformed(evt);
             }
         });
 
@@ -141,9 +160,10 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addComponent(BtnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTelaVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRelatorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 57, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,10 +174,13 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BtnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnTelaVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnRelatorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
@@ -179,12 +202,11 @@ public class TelaInicial extends javax.swing.JFrame {
     public void telaCadastro() {
         new TelaCadastroCliente().setVisible(true);
         TelaCadastroCliente CadastroCliente = new TelaCadastroCliente();
-        BtnCadastroCliente.add(CadastroCliente);
-        CadastroCliente.show();
+
     }
 
     private void BtnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastroClienteActionPerformed
-        // Cadastrando o botao para acesso ao cadastro de cliente4
+        // Cadastrando o botao para acesso ao cadastro de cliente
         telaCadastro();
     }//GEN-LAST:event_BtnCadastroClienteActionPerformed
 
@@ -193,7 +215,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroProdutoActionPerformed
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
-        new TelaRelatorios().setVisible(true);
+         new TelaRelatorioSintetico().setVisible(true);
     }//GEN-LAST:event_btnRelatorioActionPerformed
 
     private void btnTelaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaVendasActionPerformed
@@ -205,6 +227,10 @@ public class TelaInicial extends javax.swing.JFrame {
         lv.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnRelatorio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorio1ActionPerformed
+         new TelaRelatorioAnalitico().setVisible(true);
+    }//GEN-LAST:event_btnRelatorio1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +271,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton BtnCadastroCliente;
     private javax.swing.JButton btnCadastroProduto;
     private javax.swing.JButton btnRelatorio;
+    private javax.swing.JButton btnRelatorio1;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnTelaVendas;
     private javax.swing.JLabel jLabel1;

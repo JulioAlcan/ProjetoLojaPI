@@ -4,13 +4,17 @@
  * and open the template in the editor.
  */
 package projetolojapi;
-
-import Classes.DadosUsuario;
-import static java.awt.GridBagConstraints.BOTH;
+import Controller.UsuarioController;
+import DAO.UsuarioDAO;
+import static DAO.UsuarioDAO.getValidarUsuarioDAO;
+import Model.Usuario;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
 public class LoginView extends javax.swing.JFrame {
+    UsuarioController controller = new UsuarioController();
+    Usuario user = new Usuario();
 
     public LoginView() {
         initComponents();
@@ -32,14 +36,13 @@ public class LoginView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         NomeEntrar = new javax.swing.JButton();
         NomeSenha = new javax.swing.JPasswordField();
-        NomeLembrarSenha = new javax.swing.JCheckBox();
         btnNomeCadastrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setAlwaysOnTop(true);
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,16 +78,6 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
         jPanel1.add(NomeSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 280, 30));
-
-        NomeLembrarSenha.setBackground(new java.awt.Color(89, 92, 111));
-        NomeLembrarSenha.setForeground(new java.awt.Color(255, 255, 255));
-        NomeLembrarSenha.setText("Me lembre");
-        NomeLembrarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomeLembrarSenhaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(NomeLembrarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
 
         btnNomeCadastrar.setForeground(new java.awt.Color(92, 75, 105));
         btnNomeCadastrar.setText("Cadastre-se");
@@ -133,27 +126,33 @@ public class LoginView extends javax.swing.JFrame {
     }
     
     private void NomeEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeEntrarActionPerformed
-        DadosUsuario clsdados = new DadosUsuario();
-        if (!clsdados.validarUsuarios(NomeUser.getText(), new String(NomeSenha.getPassword()))) {
-            JOptionPane.showMessageDialog(rootPane, "Usuário ou senha incorretos!");
+        TelaInicial menu = new TelaInicial();
+        user.setLogin(NomeUser.getText());
+        user.setSenha(String.valueOf(NomeSenha.getPassword()));
+        
+        UsuarioController userController = new UsuarioController();
+        String senha =  String.valueOf(NomeSenha.getPassword());
+        
+        if (userController.getValidarUsuario(NomeUser.getText(),senha )) {
             NomeUser.setText("");
             NomeSenha.setText("");
             NomeUser.requestFocusInWindow();
+            menu.setVisible(true); 
+            this.dispose();
             return;
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Usuário ou senha inccorretos!");
         }
-        TelaInicial menu = new TelaInicial();
+        
+        
+        
         this.setVisible(false);
         menu.setExtendedState(JFrame.NORMAL);
-        menu.setVisible(true);
     }//GEN-LAST:event_NomeEntrarActionPerformed
 
     private void NomeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeUserActionPerformed
 
     }//GEN-LAST:event_NomeUserActionPerformed
-
-    private void NomeLembrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeLembrarSenhaActionPerformed
-
-    }//GEN-LAST:event_NomeLembrarSenhaActionPerformed
 
     private void btnNomeCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNomeCadastrarActionPerformed
         CadastroLoginView cv = new CadastroLoginView();
@@ -198,7 +197,6 @@ public class LoginView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NomeEntrar;
-    private javax.swing.JCheckBox NomeLembrarSenha;
     private javax.swing.JPasswordField NomeSenha;
     private javax.swing.JTextField NomeUser;
     private javax.swing.JButton btnNomeCadastrar;
@@ -211,9 +209,6 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    void setVisible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private static class telaCadastro {
     }

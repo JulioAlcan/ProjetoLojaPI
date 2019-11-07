@@ -5,6 +5,18 @@
  */
 package projetolojapi;
 
+import Controller.CadastroClienteController;
+import Controller.CadastroProdutoController;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author julio
@@ -14,6 +26,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroProduto
      */
+    public String modoTela;
     public TelaCadastroProduto() {
         initComponents();
         desabilitarFormulario();
@@ -28,9 +41,10 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupProd = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCadProduto = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         txtNomeProd = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -39,15 +53,15 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         txtTipo = new javax.swing.JTextField();
         btnSalvarTelaCadastroProduto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtEstoque = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lblEstoque = new javax.swing.JLabel();
+        txtQtd = new javax.swing.JTextField();
         btnNovoTelaCadastroProduto = new javax.swing.JButton();
         btnEditarTelaCadastroProduto = new javax.swing.JButton();
         btnExcluirTelaCadastroProduto = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btnBuscarTelaCadastroProduto = new javax.swing.JButton();
-        cbxIdProd = new javax.swing.JComboBox<>();
+        txtBuscar = new javax.swing.JTextField();
+        btnID = new javax.swing.JToggleButton();
+        btnNome = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de produtos");
@@ -55,36 +69,76 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCadProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome ", "Tipo", "Preço"
+                "Nome ", "Tipo", "Quantidade", "Preço"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblCadProduto);
 
         jPanel2.setBackground(new java.awt.Color(11, 33, 47));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Preço");
+
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
@@ -101,9 +155,9 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Nome produto");
 
-        txtEstoque.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        txtEstoque.setForeground(new java.awt.Color(204, 204, 204));
-        txtEstoque.setText("Qtd.");
+        lblEstoque.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEstoque.setForeground(new java.awt.Color(204, 204, 204));
+        lblEstoque.setText("Qtd.");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,32 +179,32 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtEstoque)
+                        .addComponent(lblEstoque)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(299, Short.MAX_VALUE)
+                .addContainerGap(301, Short.MAX_VALUE)
                 .addComponent(btnSalvarTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(291, 291, 291))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtEstoque)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEstoque)
+                        .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(btnSalvarTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -182,36 +236,45 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(19, 54, 77));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel2.setText("Buscar ID");
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
+            }
+        });
 
-        btnBuscarTelaCadastroProduto.setText("Buscar");
+        btnGroupProd.add(btnID);
+        btnID.setText("ID");
 
-        cbxIdProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nome" }));
+        btnGroupProd.add(btnNome);
+        btnNome.setText("Nome");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel2)
+                .addGap(25, 25, 25)
+                .addComponent(btnID, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNome, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbxIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btnBuscarTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(btnBuscarTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnID)
+                    .addComponent(btnNome))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -224,7 +287,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(btnNovoTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(btnEditarTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
                 .addComponent(btnExcluirTelaCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,7 +325,13 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoTelaCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoTelaCadastroProdutoActionPerformed
+         
+        modoTela = "InserirProd";
         habilitarFormulario();
+        btnID.setEnabled(false);
+        btnNome.setEnabled(false);
+        txtBuscar.setEnabled(false);     
+        
     }//GEN-LAST:event_btnNovoTelaCadastroProdutoActionPerformed
 
     private void btnEditarTelaCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTelaCadastroProdutoActionPerformed
@@ -270,8 +339,127 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarTelaCadastroProdutoActionPerformed
 
     private void btnSalvarTelaCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarTelaCadastroProdutoActionPerformed
-
+        
+        if(ValidarFormulario())
+        {
+            if(modoTela.equals("InserirProd"))
+            {
+                try {
+                    //Passo ao controller a entrada do usuário e peço para salvar no banco de dados
+                    if(CadastroProdutoController.salvar(txtNomeProd.getText()
+                                                        ,txtTipo.getText()
+                                                        ,Double.parseDouble(txtPreco.getText())
+                                                        ,Integer.parseInt(txtQtd.getText())   )){
+                        //Recarrego a tabela com os dados resgatados do banco de dados
+                        this.CarregarJTable();
+                        
+                        JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
+                        LimparFormulario();
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto!");
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(TelaCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }//GEN-LAST:event_btnSalvarTelaCadastroProdutoActionPerformed
+ 
+    TableRowSorter trs;
+    
+    public void LimparFormulario()
+    {
+        txtNomeProd.setText("");
+        txtTipo.setText("");
+        txtQtd.setText("");
+        txtPreco.setText("");
+        
+    }
+    
+    public void CarregarJTable(){
+        
+        //Peço ao controller resgatar os clientes do banco de dados
+        ArrayList<String[]> linhasProduto = CadastroProdutoController.consultarProduto();
+        
+        //Opção 1 - Crio manualmente um modelo para a tabela e defino as colunas
+        DefaultTableModel tmProduto = new DefaultTableModel();
+        tmProduto.addColumn("ID");
+        tmProduto.addColumn("Nome Prod");
+        tmProduto.addColumn("Tipo");
+        tmProduto.addColumn("Preco");
+        tmProduto.addColumn("Quantidade");
+
+        
+        tblCadProduto.setModel(tmProduto);
+        
+        //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
+        //tblCadProduto.removeColumn(tblCadProduto.getColumnModel().getColumn(0));
+        
+        //Opção 2 - Descomentar linhas abaixo caso queira reutilizar o modelo padrão
+        //Resgato o modelo da tabela
+        //DefaultTableModel tmClientes = (DefaultTableModel) this.tblClientes.getModel();
+        ////Limpo a tabela, excluindo todas as linhas
+        //tmClientes.setRowCount(0);
+        
+        //Para cada cliente resgatado do banco de dados, atualizo a tabela
+        for(String[] c:linhasProduto)
+        {
+            tmProduto.addRow(c);
+        }
+        
+        //Defino o tamanho para cada coluna
+        //tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblCadProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
+    }
+    
+     private boolean ValidarFormulario() {
+        
+        if(this.txtNomeProd.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um nome para o produto!");
+            return false;
+        }
+        
+        if(this.txtQtd.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um quantidade para o produto!");
+            return false;
+        }
+        if(this.txtPreco.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um preço para o produto!");
+            return false;
+        }
+        if(this.txtQtd.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina a quatidade do estoque!");
+            return false;
+        }
+        return true;
+     }
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+        DefaultTableModel dtm = (DefaultTableModel)(tblCadProduto.getModel());
+        txtBuscar.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent ke) {
+
+                trs.setRowFilter(RowFilter.regexFilter("(?i)"+txtBuscar.getText(), 0));
+            }
+        });
+
+        trs = new TableRowSorter(dtm);
+        tblCadProduto.setRowSorter(trs);
+
+    }//GEN-LAST:event_txtBuscarKeyTyped
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void desabilitarFormulario() {
         txtNomeProd.setEnabled(false);
@@ -280,6 +468,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         btnEditarTelaCadastroProduto.setEnabled(false);
         btnExcluirTelaCadastroProduto.setEnabled(false);
         btnSalvarTelaCadastroProduto.setEnabled(false);
+        txtQtd.setEnabled(false);
     }
 
     private void habilitarFormulario() {
@@ -289,8 +478,8 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         btnEditarTelaCadastroProduto.setEnabled(true);
         btnExcluirTelaCadastroProduto.setEnabled(true);
         btnNovoTelaCadastroProduto.setEnabled(true);
-        cbxIdProd.setEnabled(true);
         btnSalvarTelaCadastroProduto.setEnabled(true);
+        txtQtd.setEnabled(true);
     }
 
     /**
@@ -329,25 +518,26 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarTelaCadastroProduto;
     private javax.swing.JButton btnEditarTelaCadastroProduto;
     private javax.swing.JButton btnExcluirTelaCadastroProduto;
+    private javax.swing.ButtonGroup btnGroupProd;
+    private javax.swing.JToggleButton btnID;
+    private javax.swing.JToggleButton btnNome;
     private javax.swing.JButton btnNovoTelaCadastroProduto;
     private javax.swing.JButton btnSalvarTelaCadastroProduto;
-    private javax.swing.JComboBox<String> cbxIdProd;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel txtEstoque;
+    private javax.swing.JLabel lblEstoque;
+    private javax.swing.JTable tblCadProduto;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtNomeProd;
     private javax.swing.JTextField txtPreco;
+    private javax.swing.JTextField txtQtd;
     private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
 }
